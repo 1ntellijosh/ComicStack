@@ -36,4 +36,39 @@ class Favorite
         return { "added" => true }
       end
     end
+
+    # get all
+    def self.all(id)
+      results = DB.exec(
+          <<-SQL
+              SELECT
+                favorites.*,
+                users.username,
+                characters.name,
+                characters.deck,
+                characters.publisher,
+                characters.gender,
+                characters.icon_url,
+                characters.real_name,
+                characters.resource_type
+              FROM favorites
+              JOIN users
+                ON favorites.user_id = users.id
+              JOIN characters
+                on favorites.character_id = characters.id
+              where favorites.user_id = #{id};
+          SQL
+      )
+      return {
+        "results" => results
+      }
+    end
+
+    # delete one (by id)
+    def self.delete(id)
+      idNum = id.to_i
+      results = DB.exec("DELETE FROM favorites WHERE character_id=#{idNum};")
+      return { deleted: true }
+    end
+
 end

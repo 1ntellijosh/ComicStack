@@ -5,13 +5,15 @@ class SearchForm extends React.Component {
   }
   getResults () {
     event.preventDefault();
+    this.props.displayList();
     let query = this.refs.query.value
     let filter = this.refs.filter.value
     fetch('/queries/' + query + '/' + filter + '/1')
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        this.props.grabResults(data, query, filter, true)
+        let parsedData = this.props.parseResults(data)
+        this.props.grabResults(parsedData, query, filter, true)
       }).catch(error => console.log(error))
   }
   render(){

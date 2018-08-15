@@ -17,7 +17,8 @@ class Rollout extends React.Component {
     fetch('/queries/' + this.props.query + '/' + this.props.filter + '/' + thispage)
       .then(response => response.json())
       .then(data => {
-        this.props.grabResults(data, this.props.query, this.props.filter, false)
+        let parsedData = this.props.parseResults(data)
+        this.props.grabResults(parsedData, this.props.query, this.props.filter, false)
         this.clearForms()
       }).catch(error => console.log(error))
   }

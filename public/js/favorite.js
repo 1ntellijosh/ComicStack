@@ -5,9 +5,13 @@ class Favorite extends React.Component {
   render() {
     return (
       <div id="favoriteDiv">
-        <button id="favoriteBtn" class="button is-primary is-hovered" onClick={this.props.addCollection}>
+        {(this.props.isOwned == false)?   <button id="favoriteBtn" class="button is-primary is-hovered" onClick={this.props.addCollection}>
           ADD TO FAVORITES
         </button>
+        :
+        <button id="collectBtn" class="button is-danger is-hovered">
+          FAVORITE CHARACTER
+        </button> }
       </div>
     )
   }

@@ -8,6 +8,8 @@ class User extends React.Component {
     this.handleLogin = this.handleLogin.bind(this);
     this.getUser = this.getUser.bind(this);
     this.handleRegister = this.handleRegister.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
   /*=======================
   Registers new user (and tries to log them in)
@@ -62,6 +64,48 @@ class User extends React.Component {
       .catch(error => console.log(error))
   }
   /*=======================
+  Handles editing user
+  =======================*/
+  handleEdit(userData) {
+    console.log('user information is: ', JSON.stringify(userData));
+    let newUser = this.props.userData
+    newUser.username = userData.user.username;
+    newUser.email = userData.user.email;
+    console.log('editedUser is', newUser);
+    fetch('/user/'+this.props.userData.id, {
+      body: JSON.stringify(userData),
+      method: 'PATCH',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Authorization': this.props.userData.token
+      }
+    })
+      .then(response => {
+        return response.json()
+      })
+      .then(JSONdata => {
+        console.log('modified user', JSONdata);
+        this.props.setUser(newUser, this.props.userData.token)
+      })
+      .catch(error => console.log(error))
+  }
+  /*=======================
+  Handles editing user
+  =======================*/
+  handleDelete() {
+    console.log('Deleting user');
+    fetch('/user/'+this.props.userData.id, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': this.props.userData.token
+      }
+    }).then(response => {
+      this.props.logOut()
+    }).catch(error => console.log(error))
+  }
+  /*=======================
   Gets the user information
   =======================*/
   getUser(token) {
@@ -91,6 +135,11 @@ class User extends React.Component {
         {
           (this.props.displayLogin)
           ? <LoginForm handleLogin={this.handleLogin} toggleState={this.props.toggleState}/>
+          : null
+        }
+        {
+          (this.props.displayEditProfile)
+          ? <EditForm userData={this.props.userData} handleEdit={this.handleEdit} toggleState={this.props.toggleState} handleDelete={this.handleDelete} logOut={this.props.logOut}/>
           : null
         }
       </div>

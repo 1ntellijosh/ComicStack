@@ -32,7 +32,11 @@ class LoginForm extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div class="modal is-active">
+      <div onClick={()=> this.props.toggleState('displayLogin')} class="modal-background"></div>
+      <div class="modal-content">
+      <form class="form" onSubmit={this.handleSubmit}>
+        <h1 class="title"> Login </h1>
         <div class="field is-horizontal">
           <div class="field-body">
             <div class="field">
@@ -60,6 +64,10 @@ class LoginForm extends React.Component {
           </div>
         </div>
       </form>
+    </div>
+    <button onClick={()=> this.props.toggleState('displayLogin')} class="modal-close is-large" aria-label="close"></button>
+    </div>
+
     )
   }
 }

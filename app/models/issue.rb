@@ -38,9 +38,9 @@ class Issue
         INSERT INTO issues(id, name, description, issue_number, icon_url, volume_name, volume_id, resource_type ) VALUES (
                    #{thisIssue["id"]},
                   '#{thisIssue["name"]}',
-                  '#{thisIssue["description"] ? thisIssue["description"] : "NULL"}}',
+                  '#{thisIssue["description"] ? thisIssue["description"] : "NULL"}',
                    #{thisIssue["issue_number"]},
-                  '#{thisIssue["icon_url"] ?  thisIssue["icon_url"] : "NULL"}}',
+                  '#{thisIssue["icon_url"] ?  thisIssue["icon_url"] : "NULL"}',
                   '#{thisIssue["volume_name"]}',
                    #{thisIssue["volume_id"]},
                   '#{thisIssue["resource_type"]}' )

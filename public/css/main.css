@@ -7,18 +7,31 @@ body {
 }
 
 /* Nav Bar */
-.login:hover i{
+.login {
+  color: white;
+}
+
+.login:hover i {
   color: rgb(31,195,167);
 }
 
 .logo {
   color: white;
 }
+
+.icon-nav {
+  padding: 0 10px;
+}
 /* app.js css */
 
 /* User component */
 
 /* LoginForm component */
+.form {
+  padding: 10%;
+  border: 1px solid lightgrey;
+  background: rgb(255, 255, 255);
+}
 
 /* RegisterForm component */
 
@@ -67,6 +80,33 @@ body {
   /* formatted to view purposes in development. need to change on final */
 }
 
+/* Favorites List */
+.icon_list {
+  height: 75px;
+  width: 75px;
+  cursor: pointer;
+}
+
+.name_list {
+  font-size: 20px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.deck_list {
+  font-size: 12px;
+}
+
+.image-column {
+  min-width: 120px;
+}
+
+/* Collections list */
+.description_column {
+  max-height: 100px;
+  overflow: scroll;
+}
+
 /* ShowDetail Component */
 .showdetail-header-volumes {
   color: rgb(31,195,167);
@@ -101,4 +141,10 @@ body {
 .show-detail-section {
   margin: 10px;
   margin-bottom: 15px;
+}
+
+.modal-title-container {
+  max-width: 550px;
+  max-height: 120px;
+  overflow: scroll;
 }

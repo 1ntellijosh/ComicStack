@@ -21,7 +21,7 @@ class Character
         @resource_type = opts["resource_type"]
         @publisher = opts["publisher"]
         @deck = opts["deck"]
-        @icon_url_id = opts["icon_url"]
+        @icon_url = opts["icon_url"]
     end
 
     def self.create(thisChar)
@@ -37,10 +37,10 @@ class Character
         INSERT INTO characters(id, name, deck, publisher, gender, icon_url, real_name, resource_type ) VALUES (
                    #{thisChar["id"]},
                   '#{thisChar["name"]}',
-                  '#{thisChar["deck"] ? thisChar["deck"] : "NULL"}}',
+                  '#{thisChar["deck"] ? thisChar["deck"] : "NULL"}',
                   '#{thisChar["publisher"]}',
                    #{thisChar["gender"]},
-                  '#{thisChar["icon_url"] ?  thisChar["icon_url"] : "NULL"}}',
+                  '#{thisChar["icon_url"] ?  thisChar["icon_url"] : "NULL"}',
                   '#{thisChar["real_name"]}',
                   '#{thisChar["resource_type"]}' )
             RETURNING id, name, deck, publisher, gender, icon_url, real_name, resource_type;

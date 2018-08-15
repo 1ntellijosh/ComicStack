@@ -36,4 +36,38 @@ class Own
         return { "added" => true }
       end
     end
+
+    # get all
+    def self.find(id)
+      results = DB.exec(
+          <<-SQL
+              SELECT
+              owns.*,
+              users.username,
+              issues.name,
+              issues.description,
+              issues.issue_number,
+              issues.icon_url,
+              issues.volume_id,
+              issues.volume_name,
+              issues.resource_type
+              FROM owns
+              JOIN users
+                ON owns.user_id = users.id
+              JOIN issues
+                ON owns.issue_id = issues.id
+              WHERE owns.user_id = #{id};
+          SQL
+      )
+      return {
+        "results" => results
+      }
+    end
+
+    # delete one (by id)
+    def self.delete(id)
+      results = DB.exec("DELETE FROM owns WHERE issue_id=#{id};")
+      return { deleted: true }
+    end
+
 end
