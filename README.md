@@ -10,11 +10,11 @@
 
 ### Built With:
 
-Ruby On Rails
-Postgres
-React
-Fetch API
-Knock Gem for user authentication/sessions
+Ruby On Rails  
+Postgres  
+React  
+Fetch API  
+Knock Gem for user authentication/sessions  
 HTTP gem for api calls to Comic Vine
 
 ### Future Goals:
