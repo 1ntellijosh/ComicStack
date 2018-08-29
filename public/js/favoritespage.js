@@ -6,7 +6,8 @@ class FavoritesPage extends React.Component {
   }
   getFavorite(favorite) {
     console.log('getFavorite starting', favorite);
-    fetch('/queries/pull/characters/'+favorite.character_id, {
+    let id = (favorite.character_id) ? favorite.character_id : favorite.id;
+    fetch('/queries/pull/characters/'+id, {
       headers: {
         'Content-Type': 'application/json'
       }

@@ -21,8 +21,8 @@ class MainSearchForm extends React.Component {
     <form onSubmit={this.getResults}>
       <div id="searchBar" className="field has-addons has-addons-centered searchbardiv">
         <p class="control">
-          <span class="select is-large">
-            <select ref="filter">
+          <span class="select is-large main-select">
+            <select class="main-select" ref="filter">
               <option value="any" selected>All</option>
               <option value="issue">Issues</option>
               <option value="volume">Comic Volumes</option>

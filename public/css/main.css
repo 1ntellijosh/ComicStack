@@ -279,4 +279,30 @@ animation-direction: alternate;
     #stepper {
       margin-bottom: 15px;
     }
+    #cf img {
+      width: 400px;
+      height: 400px;
+    }
+    #cf {
+      width: 700px;
+    }
+    .main-wrapper {
+      width: 700px;
+    }
+    .maintitle {
+      font-size: 3em;
+      top: 220px;
+      left: -15px;
+      text-shadow:3px 3px 2px rgba(255,255,255,0),2px 2px 0px rgba(255,255,255,1);
+    }
+    .mainsearch {
+      top: 340px;
+      left: 10px;
+    }
+    .mainsearchinput {
+      width: 250px;
+    }
+    .main-select {
+      width: 60px;
+    }
 }

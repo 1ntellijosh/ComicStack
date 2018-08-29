@@ -8,8 +8,8 @@ class Main extends React.Component {
           <MainSearchForm grabResults={this.props.grabResults} parseResults={this.props.parseResults}
           toggleState={this.props.toggleState}
           displayList={this.props.displayList}/>
-          <img class="bottom" src="https://i.imgur.com/S1VRqU4.jpg" />
-          <img class="top" src="https://i.imgur.com/xIgbTsc.jpg" />
+          <img class="bottom" src="/images/dc.jpeg" />
+          <img class="top" src="/images/marvel2.jpeg" />
         </div>
 
       </div>

@@ -6,7 +6,8 @@ class Collection extends React.Component {
   }
   getIssue(issue) {
     console.log('getIssue starting', issue);
-    fetch('/queries/pull/issues/'+issue.issue_id, {
+    let id = (issue.issue_id) ? issue.issue_id : issue.id;
+    fetch('/queries/pull/issues/'+id, {
       headers: {
         'Content-Type': 'application/json'
       }
