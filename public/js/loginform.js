@@ -1,3 +1,6 @@
+/*=======================
+  LOGIN COMPONENT FOR USERS
+=======================*/
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)

@@ -1,5 +1,9 @@
 class Issue
 
+  # ==================================================
+  #                     ISSUE ROUTES
+  # ==================================================
+
     # add attribute readers for instance access
     attr_reader :id, :name, :description, :issue_number, :icon_url, :volume_id, :resource_type, :volume_name
 
@@ -25,12 +29,15 @@ class Issue
         @volume_name = opts["volume_name"]
     end
 
+    # ADD ISSUE TO DB FOR OWNED USER ISSUE
     def self.create(thisIssue)
+      #Check to see if issue already exists in db
       existResult = DB.exec(
           <<-SQL
           SELECT * FROM issues WHERE id = #{thisIssue["id"]};
           SQL
       )
+      #If issue doesnt exist in db, save
       if existResult.first == nil
         p "issue does not exist adding now"
         results = DB.exec(
@@ -47,9 +54,11 @@ class Issue
             RETURNING id, name, description, issue_number, icon_url, volume_name, volume_id, resource_type;
             SQL
         )
+        # Return newly saved issue
         newIssue = results.first
         return Issue.new(newIssue)
       else
+        # Return issue that was already saved to db
         p "issue exists here it is"
         return Issue.new(existResult.first)
       end

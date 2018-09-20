@@ -1,3 +1,6 @@
+/*=======================
+  ROLLOUT COMPONENT FOR API SEARCH RESULTS
+=======================*/
 class Rollout extends React.Component {
   constructor (props) {
     super(props)
@@ -9,10 +12,16 @@ class Rollout extends React.Component {
     this.skipToPage = this.skipToPage.bind(this)
     this.clearForms = this.clearForms.bind(this)
   }
+  /*=======================
+    Clears current pagination state renders on each api/paginate results action
+  =======================*/
   clearForms = () => {
   document.getElementById("topSkipper").reset();
   document.getElementById("skipper").reset();
   }
+  /*=======================
+    Pagination method - goes to specified page of search results with API call
+  =======================*/
   nextQuery (thispage) {
     fetch('/queries/' + this.props.query + '/' + this.props.filter + '/' + thispage)
       .then(response => response.json())
@@ -22,6 +31,9 @@ class Rollout extends React.Component {
         this.clearForms()
       }).catch(error => console.log(error))
   }
+  /*=======================
+    Method to go to next single page of API search results
+  =======================*/
   paginate(event) {
     let thispage = 0
     if(event.target.id == 'next') {
@@ -34,6 +46,9 @@ class Rollout extends React.Component {
     }
     this.nextQuery(thispage)
   }
+  /*=======================
+    Method to skip to an axect page in API search results
+  =======================*/
   skipToPage() {
     event.preventDefault();
     let thispage = ''

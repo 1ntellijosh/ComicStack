@@ -1,3 +1,6 @@
+/*=======================
+  Collect Button to add comic to collection
+=======================*/
 class Collect extends React.Component {
   constructor(props) {
     super(props)

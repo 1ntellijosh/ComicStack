@@ -1,8 +1,14 @@
+/*=======================
+  SEARCH FORM COMPONENT IN TOP NAVBAR
+=======================*/
 class SearchForm extends React.Component {
   constructor(props) {
     super(props)
     this.getResults = this.getResults.bind(this)
   }
+  /*=======================
+    Formats and sends API calls to comic vine
+  =======================*/
   getResults () {
     event.preventDefault();
     this.props.displayList();

@@ -1,5 +1,11 @@
 class Own
 
+  # ==================================================
+  #                     OWN ROUTES
+  # ==================================================
+
+  #Linking table entity for user's owned issues (one to many)
+
     # add attribute readers for instance access
     attr_reader :user_id, :issue_id
 
@@ -20,6 +26,7 @@ class Own
         @issue_id = opts["issue_id"].to_i
     end
 
+    # Add owned issue linking table to db
     def self.create(thisFave)
       results = DB.exec(
       <<-SQL
@@ -37,7 +44,7 @@ class Own
       end
     end
 
-    # get all
+    # get all owned issues according to user
     def self.find(id)
       results = DB.exec(
           <<-SQL
@@ -64,7 +71,7 @@ class Own
       }
     end
 
-    # delete one (by id)
+    # delete one owned issue linking table (by id)
     def self.delete(id)
       results = DB.exec("DELETE FROM owns WHERE issue_id=#{id};")
       return { deleted: true }

@@ -1,3 +1,6 @@
+/*=======================
+  EDIT USER INFO COMPONENT
+=======================*/
 class EditForm extends React.Component {
   constructor(props) {
     super(props)

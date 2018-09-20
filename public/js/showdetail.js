@@ -1,3 +1,7 @@
+/*=======================
+  SHOWDETAIL MODAL COMPONENT
+=======================*/
+//Modal to chow more info on search results that are clicked in the search result rollout component
 class ShowDetail extends React.Component {
   constructor(props) {
     super(props);
