@@ -1,6 +1,10 @@
 
 class User < ApplicationRecord
 
+  # ==================================================
+  #                     USER ROUTES
+  #  ==================================================
+
   # Necessary to authenticate.
   has_secure_password
 

@@ -1,3 +1,6 @@
+/*=======================
+  REGISTER NEW USER COMPONENT
+=======================*/
 class RegisterForm extends React.Component {
   constructor(props) {
     super(props)

@@ -1,9 +1,15 @@
+/*=======================
+  FAVORITES COMPONENT - LIST ALL FAVORITE CHARACTERS
+=======================*/
 class FavoritesPage extends React.Component {
   constructor(props) {
     super(props)
     this.getFavorite = this.getFavorite.bind(this);
     this.showFavorite = this.showFavorite.bind(this);
   }
+  /*=======================
+    API call to Comic vine to pull more info on favorite character
+  =======================*/
   getFavorite(favorite) {
     console.log('getFavorite starting', favorite);
     let id = (favorite.character_id) ? favorite.character_id : favorite.id;
@@ -18,6 +24,9 @@ class FavoritesPage extends React.Component {
       this.showFavorite(JSONdata)
     }).catch(error => console.log(error))
   }
+  /*=======================
+    Set Character info from API call to state and display in modal
+  =======================*/
   showFavorite(data) {
     console.log('Data in showFavorite', data);
     if (data.results && data.results.length > 0) {

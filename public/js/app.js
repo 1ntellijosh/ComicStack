@@ -1,3 +1,6 @@
+/*=======================
+  MAIN APP COMPONENT FOR COMICSTACK
+=======================*/
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -347,6 +350,9 @@ class App extends React.Component {
       isOwned: true
     })
   }
+  /*=======================
+    Remove character from user's favorites collection
+  =======================*/
   deleteFavorite (character, index) {
     let thisID = 0
     if (character.character_id) {
@@ -368,6 +374,9 @@ class App extends React.Component {
         })
       })
   }
+  /*=======================
+    Remove comic issue from user's comic collection
+  =======================*/
   deleteFromCollection (issue, index) {
     console.log('Deleting from collection', issue, index);
     let thisID = 0
@@ -484,7 +493,9 @@ class App extends React.Component {
     )
   }
 }
-
+/*=======================
+  RENDER TO PAGE
+=======================*/
 ReactDOM.render(
   <App />,
   document.querySelector('.body')

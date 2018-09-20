@@ -1,9 +1,15 @@
+/*=======================
+  COLLECTION DISPLAYS ALL ISSUES OWNED BY THE USER
+=======================*/
 class Collection extends React.Component {
   constructor(props) {
     super(props)
     this.getIssue = this.getIssue.bind(this);
     this.showIssue = this.showIssue.bind(this);
   }
+  /*=======================
+    Pull issue data from Comic Vine API
+  =======================*/
   getIssue(issue) {
     console.log('getIssue starting', issue);
     let id = (issue.issue_id) ? issue.issue_id : issue.id;
@@ -18,6 +24,9 @@ class Collection extends React.Component {
       this.showIssue(JSONdata)
     }).catch(error => console.log(error))
   }
+  /*=======================
+    Set issue data to current state and display in modal
+  =======================*/
   showIssue(data) {
     console.log('Data in showIssue', data);
     if (data.results && data.results.length > 0) {

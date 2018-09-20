@@ -1,3 +1,6 @@
+/*=======================
+  BUTTON COMPONENT TO ADD CHARACTER TO FAVORITES
+=======================*/
 class Favorite extends React.Component {
   constructor(props) {
     super(props)

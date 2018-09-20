@@ -1,13 +1,17 @@
 class Query
 
     # ==================================================
-    #                      ROUTES
-    # ==================================================
+    #                     QUERY ROUTES
+    #  ==================================================
+
+    #Routes for queries to Comic Vine API
+
+    #Require gems
     require 'net/http'
     require "http"
 
 
-    # get one by id
+    # MAIN API SEARCH QUERY
     def self.find(query, filter, page)
       p "in query class for find"
       p query
@@ -32,7 +36,7 @@ class Query
       return response.to_s
     end
 
-    # pull more information on volume issue or character
+    # API CALL TO PULL MORE INFO ON CHARACTER, ISSUE OR COMIC VOLUME
     def self.pull(resource_type, id)
       p "in query class for pull"
       p resource_type

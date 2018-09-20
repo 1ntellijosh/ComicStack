@@ -1,5 +1,11 @@
 class Favorite
 
+  # ==================================================
+  #                     FAVORITE ROUTES
+  # ==================================================
+
+  #Linking table entity for user's favorite characters (one to many)
+
     # add attribute readers for instance access
     attr_reader :user_id, :character_id
 
@@ -20,6 +26,7 @@ class Favorite
         @character_id = opts["character_id"].to_i
     end
 
+    # Add favorite character linking table to db
     def self.create(thisFave)
       results = DB.exec(
       <<-SQL
@@ -37,7 +44,7 @@ class Favorite
       end
     end
 
-    # get all
+    # get all favorites according to user
     def self.all(id)
       results = DB.exec(
           <<-SQL
@@ -64,7 +71,7 @@ class Favorite
       }
     end
 
-    # delete one (by id)
+    # delete one favorite character linking table (by id)
     def self.delete(id)
       idNum = id.to_i
       results = DB.exec("DELETE FROM favorites WHERE character_id=#{idNum};")

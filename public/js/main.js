@@ -1,3 +1,6 @@
+/*=======================
+  MAIN LOGO/SEARCHBAR COMPONENT FOR COMICSTACK FRONT PAGE
+=======================*/
 class Main extends React.Component {
   render() {
     return(
